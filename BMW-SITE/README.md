@@ -1,80 +1,66 @@
-# BMW Heritage Gallery | The Ultimate Driving Machine 🚗💨
+# BMW Heritage Gallery 🚗
 
-![BMW Banner](https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=2070&auto=format&fit=crop)
+BMW avtomobil brendining eng noyob va eksklyuziv modellariga bag'ishlangan zamonaviy web-sayt.
 
-<div align="center">
-  
-  [![Live Demo](https://img.shields.io/badge/demo-live-blue?style=for-the-badge&logo=netlify)](https://your-demo-link.netlify.app)
-  [![GitHub stars](https://img.shields.io/github/stars/yourusername/bmw-heritage-gallery?style=for-the-badge&logo=github)](https://github.com/yourusername/bmw-heritage-gallery/stargazers)
-  [![GitHub license](https://img.shields.io/github/license/yourusername/bmw-heritage-gallery?style=for-the-badge)](LICENSE)
-  
-</div>
+## 📋 Loyiha haqida
 
-## 📋 Overview
+**BMW Heritage Gallery** – bu BMW tarixidagi eng mashhur modellarni jamlagan interaktiv galereya. Saytda 8 ta noyob model, ularning texnik xususiyatlari va qiziqarli tarixiy ma'lumotlar mavjud.
 
-**BMW Heritage Gallery** – bu BMW avtomobil brendining eng noyob va eksklyuziv modellariga bag'ishlangan zamonaviy web-sayt. Saytda BMW tarixidagi eng mashhur modellar, ularning texnik xususiyatlari va qiziqarli tarixiy ma'lumotlar jamlangan.
+## ✨ Asosiy funksiyalar
 
-### ✨ Asosiy xususiyatlar
+- **8 ta noyob BMW modeli** – 507 Roadster, 3.0 CSL "Batmobile", M1, M3 GTR va boshqalar
+- **To'liq texnik ma'lumotlar** – Dvigatel, ot kuchi, tezlik, ishlab chiqarish soni
+- **3 til** – Ingliz, Nemis, O'zbek
+- **Zamonaviy dizayn** – Glassmorphism, animatsiyalar, parallax
+- **Responsive** – Barcha qurilmalarga mos
+- **Filter va qidiruv** – Modellarni osongina topish
+- **Wishlist** – Sevimli modellarni saqlash
+- **Auth tizimi** – Ro'yxatdan o'tish va kirish
 
-- 🚘 **8 ta noyob BMW modeli** – 507 Roadster, 3.0 CSL "Batmobile", M1, M3 GTR va boshqalar
-- 📜 **To'liq texnik ma'lumotlar** – Dvigatel, ot kuchi, tezlik, ishlab chiqarish soni
-- 🏷️ **Nickname'lar** – Har bir modelning o'ziga xos laqabi ("Batmobile", "The Legend")
-- 🌍 **3 til** – Ingliz, Nemis, O'zbek tillarida
-- 🎨 **Zamonaviy dizayn** – Glassmorphism, smooth animatsiyalar, parallax effekt
-- 📱 **Responsive** – Barcha qurilmalarda mukammal ko'rinish
-- 🔍 **Filter va qidiruv** – Modellarni osongina topish
-- ❤️ **Wishlist** – Sevimli modellarni saqlash
-- 👤 **Auth tizimi** – Ro'yxatdan o'tish va kirish
+## 🚘 Galereyadagi modellar
 
----
-
-## 🚀 Tezkor ko'rish
-
-<div align="center">
-  
-| **Sahifa** | **Screenshot** |
-|------------|----------------|
-| **Hero Section** | ![Hero](https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=400&auto=format&fit=crop) |
-| **Art of Design Gallery** | ![Gallery](https://images.unsplash.com/photo-1523987357523-2494fcd45c72?q=80&w=400&auto=format&fit=crop) |
-| **Car Modal** | ![Modal](https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400&auto=format&fit=crop) |
-
-</div>
-
----
-
-## 🎯 Galereyadagi modellar
-
-<div align="center">
-  
-| | Model | Nickname | Yil | Dvigatel | Ishlab chiqarish |
-|--|-------|----------|-----|----------|------------------|
-| 1 | **BMW 507 Roadster** | "The Elvis Presley BMW" | 1957 | 3.2L V8 | 252 units |
-| 2 | **BMW 3.0 CSL** | "Batmobile" | 1973 | 3.2L Inline-6 | 1,265 units |
-| 3 | **BMW M1 (E26)** | "The Original Supercar" | 1978 | 3.5L Inline-6 | 453 units |
-| 4 | **BMW M3 GTR** | "The Legend" | 2001 | 4.0L V8 | 10 units |
-| 5 | **BMW M3-R (E36)** | "The Australian Exclusive" | 1994 | 3.0L Inline-6 | 15 units |
-| 6 | **BMW M4 CS VR46** | "VR46 Edition" | 2022 | 3.0L Twin-Turbo | 46 units |
-| 7 | **BMW M3 GTS (E92)** | "The Track Weapon" | 2010 | 4.4L V8 | 135 units |
-| 8 | **BMW M4 CSL (G82)** | "The Lightweight Legend" | 2023 | 3.0L Twin-Turbo | 1,000 units |
-
-</div>
-
----
+| Model | Nickname | Yil | Dvigatel | Ishlab chiqarish |
+|-------|----------|-----|----------|------------------|
+| BMW 507 Roadster | "The Elvis Presley BMW" | 1957 | 3.2L V8 | 252 dona |
+| BMW 3.0 CSL | "Batmobile" | 1973 | 3.2L Inline-6 | 1,265 dona |
+| BMW M1 (E26) | "The Original Supercar" | 1978 | 3.5L Inline-6 | 453 dona |
+| BMW M3 GTR | "The Legend" | 2001 | 4.0L V8 | 10 dona |
+| BMW M3-R (E36) | "The Australian Exclusive" | 1994 | 3.0L Inline-6 | 15 dona |
+| BMW M4 CS VR46 | "VR46 Edition" | 2022 | 3.0L Twin-Turbo | 46 dona |
+| BMW M3 GTS (E92) | "The Track Weapon" | 2010 | 4.4L V8 | 135 dona |
+| BMW M4 CSL (G82) | "The Lightweight Legend" | 2023 | 3.0L Twin-Turbo | 1,000 dona |
 
 ## 🛠 Texnologiyalar
 
-<div align="center">
-  
-| | Texnologiya | Maqsad |
-|--|-------------|--------|
-| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) | **HTML5** | Struktura |
-| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) | **CSS3** | Stillar |
-| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) | **JavaScript (ES6+)** | Interaktivlik |
-| ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) | **Tailwind CSS** | Utility-first CSS |
-| ![Font Awesome](https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=font-awesome&logoColor=white) | **Font Awesome 6** | Ikonkalar |
-
-</div>
-
----
+- **HTML5** – Struktura
+- **CSS3** – Stillar, animatsiyalar
+- **JavaScript (ES6+)** – Interaktivlik
+- **Tailwind CSS** – Utility-first CSS framework
+- **Font Awesome 6** – Ikonkalar
 
 ## 📁 Loyiha strukturasi
+BMW-SITE
+│
+├── index.html
+│
+├── css/
+│ ├── style.css
+│ ├── animations.css
+│ ├── components.css
+│ ├── responsive.css
+│ └── variables.css
+│
+├── js/
+│ ├── main.js
+│ ├── gallery-data.js
+│ ├── ui.js
+│ ├── language.js
+│ ├── translations.js
+│ ├── auth.js
+│ ├── wishlist.js
+│ ├── search.js
+│ └── car-modal.js
+│
+└── utils/
+├── helpers.js
+└── constants.js
