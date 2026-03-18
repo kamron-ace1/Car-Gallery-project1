@@ -85,7 +85,7 @@ function checkUser() {
         authStatus.innerHTML = `
             <div class="relative group">
                 <button class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center
-                              hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300">
+                            hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300">
                     <span class="text-[10px] font-bold text-white">${currentUser.name.charAt(0).toUpperCase()}</span>
                 </button>
                 <div class="absolute right-0 top-12 w-48 bg-zinc-900 border border-white/10 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">

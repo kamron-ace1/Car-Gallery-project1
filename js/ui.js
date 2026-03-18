@@ -49,16 +49,16 @@ function createCarCard(car) {
     card.innerHTML = `
         <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900 border border-white/5 mb-4 rounded-2xl">
             <img src="${car.image}" 
-                 class="card-img w-full h-full object-cover"
-                 loading="lazy"
-                 onerror="this.src='https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=2070&auto=format&fit=crop'">
+                class="card-img w-full h-full object-cover"
+                loading="lazy"
+                onerror="this.src='https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=2070&auto=format&fit=crop'">
             
             <div class="absolute inset-0 card-overlay"></div>
             
             <div class="absolute top-4 right-4">
                 <button onclick="toggleWishlist(event, ${car.id})" 
                         class="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center
-                               hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300">
+                            hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300">
                     <i class="fa-${wishlist.some(item => item.id === car.id) ? 'solid' : 'regular'} fa-heart text-sm"></i>
                 </button>
             </div>

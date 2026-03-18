@@ -74,8 +74,8 @@ function openWishlist() {
                     </div>
                     <button onclick="toggleWishlist(event, ${car.id})" 
                             class="w-10 h-10 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center
-                                   hover:bg-red-500 hover:scale-110 transition-all">
-                        <i class="fa-regular fa-trash-can text-red-500 hover:text-white"></i>
+                                hover:bg-red-500 hover:scale-110 transition-all">
+                        <i class="fa-solid fa-trash-can text-red-500 hover:text-white"></i>
                     </button>
                 </div>
             `).join('');
