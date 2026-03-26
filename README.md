@@ -41,17 +41,33 @@ BMW avtomobil brendining eng noyob va eksklyuziv modellariga bag'ishlangan zamon
 ## 📁 Loyiha strukturasi
 ## 📁 Loyiha strukturasi
 
+## 📁 Loyiha strukturasi
+
 ```text
-BMW-SITE/
-├── 📄 index.html
-├── 📂 css/
-│   ├── style.css         # Asosiy stillar
-│   ├── animations.css    # Maxsus animatsiyalar
-│   └── responsive.css    # Adaptiv dizayn
-├── 📂 js/
-│   ├── main.js           # Kirish nuqtasi
-│   ├── gallery-data.js   # Ma'lumotlar bazasi
-│   ├── translations.js   # Til paketlari
-│   └── auth.js           # Avtorizatsiya mantiqi
-└── 📂 utils/
-    └── helpers.js        # Yordamchi funksiyalar
+GALLERY-PROJECT/
+├── 📁 assets/
+│   ├── 📁 fonts/          # Shriftlar
+│   ├── 📁 icons/          # Ikonkalar
+│   ├── 📁 images/         # Avtomobil va UI rasmlari (cars, gallery, hero, logos)
+├── 📁 css/
+│   ├── 📄 animations.css   # Maxsus animatsiyalar
+│   ├── 📄 components.css   # Komponentlar uchun stillar
+│   ├── 📄 responsive.css   # Mobil qurilmalarga moslashuv
+│   ├── 📄 style.css        # Asosiy dizayn
+│   └── 📄 variables.css    # Rang va o'zgaruvchilar
+├── 📁 js/
+│   ├── 📄 animations.js    # JS animatsiyalari
+│   ├── 📄 auth.js          # Kirish va ro'yxatdan o'tish
+│   ├── 📄 car-modal.js     # Mashina haqida popup oynasi
+│   ├── 📄 cars-data.js     # Avtomobillar ma'lumotlar bazasi
+│   ├── 📄 gallery-data.js  # Galereya kontenti
+│   ├── 📄 language.js      # Tilni almashtirish mantiqi
+│   ├── 📄 main.js          # Asosiy script
+│   ├── 📄 search.js        # Qidiruv tizimi
+│   ├── 📄 ui.js            # Interfeys boshqaruvi
+│   └── 📄 wishlist.js      # Sevimli modellar mantiqi
+├── 📁 utils/
+│   ├── 📄 constants.js     # O'zgarmas qiymatlar
+│   └── 📄 helpers.js       # Yordamchi funksiyalar
+├── 📄 index.html           # Asosiy sahifa
+└── 📄 README.md            # Loyiha qo'llanmasi
