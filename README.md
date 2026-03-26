@@ -39,28 +39,16 @@ BMW avtomobil brendining eng noyob va eksklyuziv modellariga bag'ishlangan zamon
 - **Font Awesome 6** – Ikonkalar
 
 ## 📁 Loyiha strukturasi
-BMW-SITE
-│
-├── index.html
-│
-├── css/
-│ ├── style.css
-│ ├── animations.css
-│ ├── components.css
-│ ├── responsive.css
-│ └── variables.css
-│
-├── js/
-│ ├── main.js
-│ ├── gallery-data.js
-│ ├── ui.js
-│ ├── language.js
-│ ├── translations.js
-│ ├── auth.js
-│ ├── wishlist.js
-│ ├── search.js
-│ └── car-modal.js
-│
-└── utils/
-├── helpers.js
-└── constants.js
+BMW-SITE/
+├── 📄 index.html
+├── 📂 css/
+│   ├── style.css         # Asosiy stillar
+│   ├── animations.css    # Maxsus animatsiyalar
+│   └── responsive.css    # Adaptiv dizayn
+├── 📂 js/
+│   ├── main.js           # Kirish nuqtasi
+│   ├── gallery-data.js   # Ma'lumotlar bazasi
+│   ├── translations.js   # Til paketlari
+│   └── auth.js           # Avtorizatsiya mantiqi
+└── 📂 utils/
+    └── helpers.js        # Yordamchi funksiyalar

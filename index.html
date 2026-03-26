@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMW | The Ultimate Driving Machine</title>
     
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/icons/favicon-96x96.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -202,7 +207,7 @@ Wishlist
     <div class="absolute inset-0 parallax-layer" data-speed="0.5">
         <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-        <img src="https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=2070&auto=format&fit=crop" 
+        <img src="./assets/images/cars/SZC10.jpg"
         class="w-full h-full object-cover animate-ken-burns"
         alt="BMW Hero">
     </div>
@@ -508,16 +513,16 @@ Wishlist
 </main>
 
 <!-- Gallery Section -->
-<section id="gallery" class="py-16 md:py-20 border-y border-white/5">
+<section id="gallery" class="py-16 md:py-32 bg-black relative overflow-hidden">
     <div class="max-w-screen-2xl mx-auto px-6">
-        <div class="text-center mb-12 md:mb-16">
+        <div class="text-center mb-12 md:mb-20">
             <span class="text-[8px] uppercase tracking-[0.8em] text-[#1c69d4] font-bold mb-4 block gallery-text" data-en="Gallery" data-de="Galerie" data-uz="Galereya">Gallery</span>
-            <h2 class="text-4xl md:text-7xl font-bold mb-6 md:mb-8 gallery-title" style="font-family: 'Playfair Display', serif;" data-en="The Art of Design" data-de="Die Kunst des Designs" data-uz="Dizayn San'ati">
-                The Art of Design
-            </h2>
+            <h2 class="text-4xl md:text-7xl font-bold mb-6 gallery-title" style="font-family: 'Playfair Display', serif;" data-en="The Art of Design" data-de="Die Kunst der Gestaltung" data-uz="Dizayn San'ati">The Art of Design</h2>
+            <p class="text-zinc-400 max-w-md mx-auto" data-en="Rare. Exclusive. Timeless. Only a few of these masterpieces exist in the world." data-de="Selten. Exklusiv. Zeitlos. Nur wenige dieser Meisterwerke existieren in der Welt." data-uz="G'arajli. Eksklyuziv. Vaqtli. Dunyoda faqat bir nechta bu asarlarning yaratilishi mumkin.">Rare. Exclusive. Timeless. Only a few of these masterpieces exist in the world.</p>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[150px] md:auto-rows-[300px]" id="galleryGrid"></div>
+        <!-- Exclusive 7 ta mashina grid (masonry uslubida) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]" id="galleryGrid"></div>
     </div>
 </section>
 
@@ -718,10 +723,10 @@ hover:bg-[#1c69d4] hover:scale-110 transition-all z-50 opacity-0 invisible" id="
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- Scripts - To'g'ri tartibda yuklanishi kerak -->
-<script src="utils/constants.js"></script>
-<script src="utils/helpers.js"></script>
+<script src="js/constants.js"></script>
+<script src="js/helpers.js"></script>
 <script src="js/cars-data.js"></script>
-<script src="js/gallery-data.js"></script>  <!-- gallery-data.js cars-data.js dan keyin -->
+<script src="js/gallery-data.js"></script>
 <script src="js/translations.js"></script>
 <script src="js/language.js"></script>
 <script src="js/animations.js"></script>
@@ -729,7 +734,7 @@ hover:bg-[#1c69d4] hover:scale-110 transition-all z-50 opacity-0 invisible" id="
 <script src="js/wishlist.js"></script>
 <script src="js/search.js"></script>
 <script src="js/car-modal.js"></script>
-<script src="js/ui.js"></script>           <!-- ui.js da displayGallery funksiyasi bor -->
+<script src="js/ui.js"></script>
 <script src="js/main.js"></script>          <!-- main.js eng oxirida -->
 </body>
 </html>

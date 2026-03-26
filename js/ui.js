@@ -149,3 +149,31 @@ document.addEventListener('click', (e) => {
 
 // Escape key
 document.addEventListener('keydown', closeOnEscape);
+// Display Exclusive Limited Gallery (7 ta)
+function displayGallery() {
+    const grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = '';
+
+    limitedExclusiveCars.forEach((car, index) => {
+        const item = document.createElement('div');
+        item.className = `gallery-item relative overflow-hidden rounded-3xl cursor-pointer group 
+                          ${index === 0 || index === 3 ? 'md:row-span-2' : ''}`;   // faqat birinchi va to'rtinchi biroz balandroq bo'ladi
+        
+        item.innerHTML = `
+            <img src="${car.image}" 
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                alt="${car.model}">
+            <div class="gallery-overlay flex flex-col justify-end p-6">
+                <span class="inline-block px-4 py-1 bg-[#1c69d4] text-[9px] font-bold tracking-widest mb-3">${car.badge}</span>
+                <h4 class="text-2xl font-bold text-white mb-1">${car.model}</h4>
+                <p class="text-sm text-zinc-300">${car.year} • ${car.production}</p>
+                <p class="text-[#1c69d4] text-xl font-bold mt-3">${car.price}</p>
+            </div>
+        `;
+        
+        item.onclick = () => openCarModal(car);
+        grid.appendChild(item);
+    });
+}

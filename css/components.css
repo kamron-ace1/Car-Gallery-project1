@@ -1,4 +1,10 @@
 /* Navigation */
+nav {
+    background: rgba(10, 10, 10, 0.45);     /* oldin 0.75 yoki 0.95 edi, endi 0.45 */
+    backdrop-filter: blur(12px);            /* biroz yumshoqroq blur */
+    border-bottom: 1px solid rgba(28, 105, 212, 0.12);
+    transition: all 0.4s ease;
+}
 .nav-link {
     position: relative;
     font-size: 9px;
