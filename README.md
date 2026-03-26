@@ -39,6 +39,9 @@ BMW avtomobil brendining eng noyob va eksklyuziv modellariga bag'ishlangan zamon
 - **Font Awesome 6** – Ikonkalar
 
 ## 📁 Loyiha strukturasi
+## 📁 Loyiha strukturasi
+
+```text
 BMW-SITE/
 ├── 📄 index.html
 ├── 📂 css/
