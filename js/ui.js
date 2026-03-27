@@ -46,37 +46,51 @@ function displayCars(reset = true) {
 function createCarCard(car) {
     const card = document.createElement('div');
     card.className = 'car-card group cursor-pointer';
+    
     card.innerHTML = `
-        <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900 border border-white/5 mb-4 rounded-2xl">
+        <div class="relative overflow-hidden aspect-[16/10] bg-zinc-900 border border-white/5 mb-4 rounded-3xl">
             <img src="${car.image}" 
-                class="card-img w-full h-full object-cover"
+                class="card-img w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
                 onerror="this.src='https://images.unsplash.com/photo-1556189250-72ba954cfc2b?q=80&w=2070&auto=format&fit=crop'">
             
-            <div class="absolute inset-0 card-overlay"></div>
+            <!-- Badge (series) -->
+            <div class="absolute top-4 left-4">
+                <span class="inline-block px-4 py-1 bg-black/70 backdrop-blur-sm border border-white/10 rounded-full text-[9px] uppercase tracking-widest font-medium">
+                    ${car.series.toUpperCase()} SERIES
+                </span>
+            </div>
             
+            <!-- Wishlist button -->
             <div class="absolute top-4 right-4">
                 <button onclick="toggleWishlist(event, ${car.id})" 
-                        class="w-10 h-10 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center
+                        class="w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center
                             hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300">
                     <i class="fa-${wishlist.some(item => item.id === car.id) ? 'solid' : 'regular'} fa-heart text-sm"></i>
                 </button>
             </div>
-            
-            <div class="absolute bottom-4 left-4 right-4">
-                <span class="inline-block px-3 py-1 bg-black/50 backdrop-blur-sm border border-white/10 rounded-full text-[8px] uppercase tracking-widest">
-                    ${car.series.toUpperCase()} SERIES
-                </span>
-            </div>
         </div>
         
-        <h3 class="text-2xl font-bold mb-1 group-hover:text-[#1c69d4] transition-colors" style="font-family: 'Playfair Display', serif;">${car.model}</h3>
-        <div class="flex items-center gap-3 text-[8px] uppercase tracking-widest text-zinc-500">
-            <span>${car.year}</span>
-            <span class="w-1 h-1 bg-[#1c69d4] rounded-full"></span>
-            <span>${car.hp} HP</span>
-            <span class="w-1 h-1 bg-[#1c69d4] rounded-full"></span>
-            <span>${car.price}</span>
+        <!-- Info qismi - Gallery uslubida -->
+        <div class="px-1">
+            <h3 class="text-2xl font-bold mb-2 group-hover:text-[#1c69d4] transition-colors" style="font-family: 'Playfair Display', serif;">
+                ${car.model}
+            </h3>
+            
+            <div class="flex items-center justify-between text-sm">
+                <div>
+                    <span class="text-zinc-400">${car.year}</span>
+                </div>
+                <div class="text-right">
+                    <span class="text-[#1c69d4] font-bold">${car.price}</span>
+                </div>
+            </div>
+            
+            <div class="mt-2 flex items-center gap-2 text-xs text-zinc-400">
+                <span>${car.hp} HP</span>
+                <span class="w-1 h-1 bg-[#1c69d4] rounded-full"></span>
+                <span>${car.engine}</span>
+            </div>
         </div>
     `;
     

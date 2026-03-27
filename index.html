@@ -32,32 +32,45 @@
 <body class="bg-[#0a0a0a] text-white overflow-x-hidden selection:bg-[#1c69d4]/30 selection:text-white">
     
     <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-[#0a0a0a] z-[1000] flex items-center justify-center transition-opacity duration-1000">
-        <div class="text-center relative">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-32 h-32 border-2 border-[#1c69d4]/20 rounded-full animate-ping"></div>
-                <div class="w-40 h-40 border-2 border-[#1c69d4]/10 rounded-full animate-pulse delay-300"></div>
-            </div>
-            
-            <div class="relative z-10">
-                <div class="w-24 h-24 mx-auto mb-8 relative">
-                    <div class="absolute inset-0 bg-[#1c69d4] rounded-full opacity-20 animate-pulse"></div>
-                    <img src="https://www.carlogos.org/car-logos/bmw-logo.png" 
-                    class="w-full h-full object-contain relative z-10 animate-logo-spin"
+<div id="loading-screen" class="fixed inset-0 bg-[#0a0a0a] z-[1000] flex items-center justify-center overflow-hidden">
+    <div class="text-center relative">
+        
+        <!-- Light Beams Container -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div class="w-[380px] h-[380px] border border-[#1c69d4]/20 rounded-full animate-spin" 
+                style="animation-duration: 9s"></div>
+            <div class="absolute w-[280px] h-[280px] border border-[#1c69d4]/30 rounded-full animate-spin" 
+                style="animation-duration: 13s; animation-direction: reverse"></div>
+            <div class="absolute w-[200px] h-[200px] border border-[#1c69d4]/40 rounded-full animate-spin" 
+                style="animation-duration: 7s"></div>
+        </div>
+
+        <!-- BMW Logo -->
+        <div class="relative z-10 mb-10">
+            <div class="w-32 h-32 mx-auto relative">
+                <!-- Soft glow -->
+                <div class="absolute inset-0 bg-[#1c69d4] rounded-full opacity-25 blur-xl animate-pulse"></div>
+                
+                <img src="https://www.carlogos.org/car-logos/bmw-logo.png" 
+                    class="w-32 h-32 object-contain relative z-10 animate-logo-spin"
                     alt="BMW Logo">
-                </div>
-            </div>
-            
-            <div class="relative z-10">
-                <div class="flex items-center justify-center gap-2 mb-4">
-                    <span class="w-2 h-2 bg-[#1c69d4] rounded-full animate-bounce" style="animation-delay: 0s"></span>
-                    <span class="w-2 h-2 bg-[#1c69d4] rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
-                    <span class="w-2 h-2 bg-[#1c69d4] rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
-                </div>
-                <p class="text-[10px] uppercase tracking-[0.5em] text-zinc-500" id="loading-text">Engineering Excellence</p>
             </div>
         </div>
+
+        <!-- Text -->
+        <div class="relative z-10 space-y-2">
+            <p class="text-[13px] uppercase tracking-[0.5em] text-[#1c69d4] font-semibold">
+                Sheer Driving Pleasure
+            </p>
+            <p class="text-xs text-zinc-500 tracking-widest">
+                ESTABLISHED 1916 • MUNICH, GERMANY
+            </p>
+        </div>
+
+        <!-- Subtle bottom line -->
+        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-[#1c69d4]/60 to-transparent"></div>
     </div>
+</div>
     
     <!-- Progress Bar -->
     <div class="fixed top-0 left-0 w-full h-[3px] bg-[#1c69d4]/20 z-[200]">
