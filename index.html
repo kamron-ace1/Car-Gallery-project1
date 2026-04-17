@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW | The Ultimate Driving Machine</title>
+    
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/icons/favicon-96x96.png" type="image/png" sizes="96x96">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-[#0a0a0a] text-white overflow-x-hidden selection:bg-[#1c69d4]/30 selection:text-white">
+    
+    <!-- Loading Screen  -->
+    <div id="loading-screen" class="fixed inset-0 bg-[#0a0a0a] z-[1000] flex items-center justify-center transition-opacity duration-1000">
+        <div class="text-center relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-32 h-32 border-2 border-[#1c69d4]/20 rounded-full animate-ping"></div>
+                <div class="w-40 h-40 border-2 border-[#1c69d4]/10 rounded-full animate-pulse delay-300"></div>
+            </div>
+            
+            <div class="relative z-10">
+                <div class="w-24 h-24 mx-auto mb-8 relative">
+                    <div class="absolute inset-0 bg-[#1c69d4] rounded-full opacity-20 animate-pulse"></div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/3840px-BMW.svg.png" 
+                    class="w-full h-full object-contain relative z-10 animate-logo-spin"
+                    alt="BMW Logo">
+                </div>
+            </div>
+            
+            <div class="relative z-10">
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <span class="w-2 h-2 bg-[#1c69d4] rounded-full animate-bounce" style="animation-delay: 0s"></span>
+                    <span class="w-2 h-2 bg-[#1c69d4] rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                    <span class="w-2 h-2 bg-[#1c69d4] rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+                </div>
+                <p class="text-[10px] uppercase tracking-[0.5em] text-zinc-500" id="loading-text">Bayerische Motoren Werke</p>
+            </div>
+        </div>
+    </div>
+
+        <!-- Subtle bottom line -->
+        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-24 h-px bg-gradient-to-r from-transparent via-[#1c69d4]/60 to-transparent"></div>
+    </div>
+</div>
+    
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-[3px] bg-[#1c69d4]/20 z-[200]">
+        <div id="progress-bar" class="h-full bg-[#1c69d4] w-0 transition-all duration-300"></div>
+    </div>
+    
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed top-24 right-10 z-[600] flex flex-col gap-4"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 inset-x-0 z-[100] px-4 md:px-8 py-4 transition-all duration-700" id="mainNav">
+        <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
+            <!-- Left Menu -->
+            <div class="flex items-center gap-4 md:gap-8">
+                <button onclick="toggleMobileMenu()" 
+                class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center
+                hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300
+                relative overflow-hidden group lg:hidden">
+                <i class="fa-solid fa-bars text-white/70 group-hover:text-white transition-colors text-lg"></i>
+                <span class="absolute inset-0 bg-[#1c69d4] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
+            </button>
+            
+    
+    <div class="hidden lg:flex gap-6 xl:gap-8 text-[9px] uppercase tracking-[0.3em] font-semibold text-zinc-400">
+        <a href="#collection" class="nav-link hover:text-[#1c69d4] transition relative group" data-nav="collection">
+            <span class="nav-text" data-en="Models" data-de="Modelle" data-uz="Modellar">Models</span>
+            <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-[#1c69d4] transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#about" class="nav-link hover:text-[#1c69d4] transition relative group" data-nav="about">
+            <span class="nav-text" data-en="Heritage" data-de="Geschichte" data-uz="Tarix">Heritage</span>
+            <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-[#1c69d4] transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#gallery" class="nav-link hover:text-[#1c69d4] transition relative group" data-nav="gallery">
+            <span class="nav-text" data-en="Gallery" data-de="Galerie" data-uz="Galereya">Gallery</span>
+            <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-[#1c69d4] transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#technology" class="nav-link hover:text-[#1c69d4] transition relative group" data-nav="technology">
+            <span class="nav-text" data-en="Technology" data-de="Technologie" data-uz="Texnologiya">Technology</span>
+            <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-[#1c69d4] transition-all group-hover:w-full"></span>
+        </a>
+    </div>
+</div>
+
+
+<!-- Center Logo -->
+<div class="lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+    <div class="relative group hidden lg:block">
+        <div class="absolute -inset-4 bg-[#1c69d4]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/3840px-BMW.svg.png" 
+        class="h-10 md:h-12 relative z-10 transition-all duration-500 hover:scale-110"
+        alt="BMW Logo">
+    </div>
+</div>
+
+<!-- Right Menu -->
+<div class="flex items-center gap-2 md:gap-4">
+    <button onclick="openSearch()" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center
+    hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300 relative group">
+    <i class="fa-solid fa-magnifying-glass text-white/70 group-hover:text-white text-sm"></i>
+    <span class="absolute right-0 top-12 bg-[#1c69d4] text-white text-[8px] uppercase tracking-widest 
+    px-3 py-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 search-tooltip" data-en="Search" data-de="Suche" data-uz="Qidiruv">
+    Search
+</span>
+</button>
+
+<button onclick="openWishlist()" class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center
+hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300 relative group">
+<i class="fa-regular fa-heart text-white/70 group-hover:text-white text-sm"></i>
+<span id="wishlist-count" class="absolute -top-1 -right-1 bg-[#1c69d4] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+<span class="absolute right-0 top-12 bg-[#1c69d4] text-white text-[8px] uppercase tracking-widest 
+px-3 py-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 wishlist-tooltip" data-en="Wishlist" data-de="Wunschliste" data-uz="Sevimlilar">
+Wishlist
+</span>
+</button>
+
+<div id="authStatus">
+    <button onclick="openAuth()" 
+    class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center
+    hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300 relative group">
+    <i class="fa-regular fa-user text-white/70 group-hover:text-white text-sm"></i>
+    <span class="absolute right-0 top-12 bg-[#1c69d4] text-white text-[8px] uppercase tracking-widest 
+    px-3 py-2 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50 auth-tooltip" data-en="Sign In" data-de="Anmelden" data-uz="Kirish">
+    Sign In
+</span>
+</button>
+</div>
+
+<!-- Language Selector -->
+<div class="hidden lg:block relative group">
+    <button class="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center
+    hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:scale-110 transition-all duration-300">
+    <span id="current-language" class="text-[10px] font-bold text-white/70 group-hover:text-white">EN</span>
+</button>
+<div class="absolute right-0 top-12 w-24 bg-zinc-900 border border-white/10 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+    <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-2 text-[9px] uppercase hover:bg-[#1c69d4] hover:text-white transition rounded-t-lg language-option" data-lang="en">English</button>
+    <button onclick="changeLanguage('de')" class="w-full text-left px-4 py-2 text-[9px] uppercase hover:bg-[#1c69d4] hover:text-white transition language-option" data-lang="de">Deutsch</button>
+    <button onclick="changeLanguage('uz')" class="w-full text-left px-4 py-2 text-[9px] uppercase hover:bg-[#1c69d4] hover:text-white transition rounded-b-lg language-option" data-lang="uz">O'zbek</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[150] hidden lg:hidden">
+    <div class="flex flex-col h-full p-8">
+        <div class="flex justify-end">
+            <button onclick="toggleMobileMenu()" 
+            class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center
+            hover:bg-[#1c69d4] hover:border-[#1c69d4] hover:rotate-90 transition-all duration-300">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-8 flex-1">
+        <a href="#" class="text-3xl font-light hover:text-[#1c69d4] transition hover:scale-110 mobile-nav-link" onclick="toggleMobileMenu()" data-en="Home" data-de="Start" data-uz="Bosh sahifa">Home</a>
+        <a href="#collection" class="text-3xl font-light hover:text-[#1c69d4] transition hover:scale-110 mobile-nav-link" onclick="toggleMobileMenu()" data-en="Models" data-de="Modelle" data-uz="Modellar">Models</a>
+        <a href="#about" class="text-3xl font-light hover:text-[#1c69d4] transition hover:scale-110 mobile-nav-link" onclick="toggleMobileMenu()" data-en="Heritage" data-de="Geschichte" data-uz="Tarix">Heritage</a>
+        <a href="#gallery" class="text-3xl font-light hover:text-[#1c69d4] transition hover:scale-110 mobile-nav-link" onclick="toggleMobileMenu()" data-en="Gallery" data-de="Galerie" data-uz="Galereya">Gallery</a>
+        <a href="#technology" class="text-3xl font-light hover:text-[#1c69d4] transition hover:scale-110 mobile-nav-link" onclick="toggleMobileMenu()" data-en="Technology" data-de="Technologie" data-uz="Texnologiya">Technology</a>
+        
+        <div class="flex gap-3 mt-8">
+            <button onclick="changeLanguage('en')" class="px-4 py-2 text-xs uppercase border border-white/10 rounded-full hover:bg-[#1c69d4] hover:border-[#1c69d4] transition">EN</button>
+            <button onclick="changeLanguage('de')" class="px-4 py-2 text-xs uppercase border border-white/10 rounded-full hover:bg-[#1c69d4] hover:border-[#1c69d4] transition">DE</button>
+            <button onclick="changeLanguage('uz')" class="px-4 py-2 text-xs uppercase border border-white/10 rounded-full hover:bg-[#1c69d4] hover:border-[#1c69d4] transition">UZ</button>
+        </div>
+    </div>
+</div>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative h-screen w-full overflow-hidden">
+    <div class="absolute inset-0 parallax-layer" data-speed="0.5">
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+        <img src="./assets/images/cars/3h4MO.jpg"
+        class="w-full h-full object-cover animate-ken-burns"
+        alt="BMW Hero">
+    </div>
+    
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="floating-element w-64 h-64 border border-[#1c69d4]/10 rounded-full absolute top-20 left-10"></div>
+        <div class="floating-element w-96 h-96 border border-[#1c69d4]/5 rounded-full absolute bottom-20 right-10"></div>
+        <div class="floating-element w-32 h-32 bg-[#1c69d4]/5 rounded-full absolute top-40 right-40 blur-3xl"></div>
+    </div>
+    
+    <div class="absolute inset-0 flex items-center">
+        <div class="max-w-screen-2xl mx-auto px-6 w-full">
+            <div class="max-w-3xl">
+                <div class="overflow-hidden">
+                    <p class="text-[10px] uppercase tracking-[0.8em] text-[#1c69d4] font-bold mb-6 animate-slide-up" id="hero-subtitle" data-en="The Ultimate Driving Machine" data-de="Freude am Fahren" data-uz="Eng Zo'l Haydash Tajribasi">
+                        The Ultimate Driving Machine
+                    </p>
+                </div>
+                <div class="overflow-hidden">
+                    <h1 class="text-7xl md:text-9xl font-bold mb-6 animate-slide-up delay-200" style="font-family: 'Playfair Display', serif;">
+                        BMW
+                    </h1>
+                </div>
+                <div class="overflow-hidden">
+                    <p class="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl animate-slide-up delay-400 leading-relaxed" id="hero-description" data-en="A century of innovation, engineering excellence, and the pursuit of perfect driving dynamics." data-de="Ein Jahrhundert Innovation, technische Exzellenz und das Streben nach perfekter Fahrdynamik." data-uz="Bir asrlik innovatsiya, muhandislik mukammalligi va mukammal haydash dinamikasiga intilish.">
+                        A century of innovation, engineering excellence, and the pursuit of perfect driving dynamics.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap gap-6 animate-slide-up delay-600">
+                    <button onclick="scrollToCollection()" 
+                    class="group relative px-8 md:px-10 py-3 md:py-4 overflow-hidden rounded-full border-2 border-[#1c69d4] hover:scale-105 transition-transform duration-300">
+                    <span class="relative z-10 text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-bold group-hover:text-white transition-colors explore-btn" data-en="Explore Models" data-de="Modelle Entdecken" data-uz="Modellarni Ko'rish">
+                        Explore Models
+                    </span>
+                    <span class="absolute inset-0 bg-[#1c69d4] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+    <button onclick="scrollToCollection()" class="scroll-indicator group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-300">
+        <span class="text-[8px] uppercase tracking-[0.5em] text-zinc-500 group-hover:text-[#1c69d4] transition-colors scroll-text" data-en="Scroll" data-de="Scrollen" data-uz="Pastga">Scroll</span>
+        <div class="w-[2px] h-16 bg-gradient-to-b from-[#1c69d4] to-transparent group-hover:scale-y-110 transition-transform"></div>
+    </button>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-16 md:py-32 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #1c69d4 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    
+    <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="text-center mb-12 md:mb-20">
+            <span class="text-[8px] uppercase tracking-[0.8em] text-[#1c69d4] font-bold mb-4 block heritage-text" data-en="Heritage" data-de="Geschichte" data-uz="Tarix">Heritage</span>
+            <h2 class="text-4xl md:text-7xl font-bold mb-6 about-title" style="font-family: 'Playfair Display', serif;" data-en="A Century of Innovation" data-de="Ein Jahrhundert Innovation" data-uz="Bir Asrlik Innovatsiya">
+                A Century of Innovation
+            </h2>
+            <div class="w-20 md:w-24 h-[2px] bg-[#1c69d4] mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div class="space-y-6 md:space-y-8 reveal">
+                <div class="space-y-4 md:space-y-6 text-zinc-400 leading-relaxed">
+                    <p class="text-xl md:text-2xl text-white/90 font-light italic about-quote" data-en='"Born from aviation, driven by passion."' data-de='"Aus der Luftfahrt geboren, von Leidenschaft getrieben."' data-uz='"Aviatsiyadan tugʻilgan, ishtiyoq bilan boshqarilgan."'>
+                        "Born from aviation, driven by passion."
+                    </p>
+                    
+                    <p class="text-base md:text-lg about-text-1" data-en="Bayerische Motoren Werke (BMW) was founded in 1916 in Munich, Germany. From aircraft engines to the world's most desirable automobiles, our journey has been defined by relentless innovation and the pursuit of perfection." data-de="Bayerische Motoren Werke (BMW) wurde 1916 in München gegründet. Von Flugzeugmotoren bis zu den begehrtesten Automobilen der Welt – unser Weg war geprägt von unermüdlicher Innovation und dem Streben nach Perfektion." data-uz="Bayerische Motoren Werke (BMW) 1916 yilda Germaniyaning Myunxen shahrida tashkil etilgan. Samolyot dvigatellaridan tortib dunyodagi eng istalgan avtomobillargacha, bizning sayohatimiz tinimsiz innovatsiyalar va mukammallikka intilish bilan belgilandi.">
+                        <span class="text-white font-semibold">Bayerische Motoren Werke (BMW) was founded in 1916 in Munich, Germany. From aircraft engines to the world's most desirable automobiles, our journey has been defined by relentless innovation and the pursuit of perfection.</span>
+                    </p>
+                    
+                    <p class="text-sm md:text-base about-text-2" data-en="The iconic kidney grille, the Hofmeister kink, and the legendary inline-six engine – these are not just design elements, but symbols of a brand that has shaped automotive history for over a century." data-de="Der markante Nierengrill, der Hofmeister-Knick und der legendäre Reihensechszylinder – das sind nicht nur Designelemente, sondern Symbole einer Marke, die seit über einem Jahrhundert die Automobilgeschichte prägt." data-uz="Mashhur buyrak panjarasi, Hofmeister burmasi va afsonaviy olti silindrli dvigatel - bu nafaqat dizayn elementlari, balki bir asrdan ortiq avtomobil tarixini shakllantirgan brendning ramzlaridir.">
+                        The iconic kidney grille, the Hofmeister kink, and the legendary inline-six engine – these are not just design elements, but symbols of a brand that has shaped automotive history for over a century.
+                    </p>
+                </div>
+                
+                <div class="space-y-4 md:space-y-6 pt-6 md:pt-8">
+                    <div class="flex gap-4 md:gap-8 items-center">
+                        <div class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#1c69d4]/10 flex items-center justify-center">
+                            <span class="text-xl md:text-3xl font-bold text-[#1c69d4]">1916</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm md:text-base mb-1 timeline-title" data-en="Foundation" data-de="Gründung" data-uz="Tashkil etilgan">Foundation</h4>
+                            <p class="text-[10px] md:text-xs text-zinc-500 timeline-desc" data-en="BMW established in Munich" data-de="BMW in München gegründet" data-uz="BMW Myunxenda tashkil etilgan">BMW established in Munich</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 md:gap-8 items-center">
+                        <div class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#1c69d4]/10 flex items-center justify-center">
+                            <span class="text-xl md:text-3xl font-bold text-[#1c69d4]">1928</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm md:text-base mb-1 timeline-title" data-en="First Automobile" data-de="Erstes Automobil" data-uz="Birinchi Avtomobil">First Automobile</h4>
+                            <p class="text-[10px] md:text-xs text-zinc-500 timeline-desc" data-en="BMW 3/15 PS DA 2" data-de="BMW 3/15 PS DA 2" data-uz="BMW 3/15 PS DA 2">BMW 3/15 PS DA 2</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 md:gap-8 items-center">
+                        <div class="w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#1c69d4]/10 flex items-center justify-center">
+                            <span class="text-xl md:text-3xl font-bold text-[#1c69d4]">1972</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm md:text-base mb-1 timeline-title" data-en="M Division Born" data-de="M GmbH gegründet" data-uz="M Bo'limi Tug'ilgan">M Division Born</h4>
+                            <p class="text-[10px] md:text-xs text-zinc-500 timeline-desc" data-en="Motorsport legacy begins" data-de="Motorsport-Legende beginnt" data-uz="Motorsport merosi boshlanadi">Motorsport legacy begins</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <blockquote class="relative pl-8 md:pl-12 py-4 md:py-6">
+                    <i class="fa-solid fa-quote-left absolute left-0 top-0 text-3xl md:text-4xl text-[#1c69d4]/20"></i>
+                    <p class="text-base md:text-xl italic text-white/80 about-quote-2" data-en="Sheer driving pleasure isn't just a slogan – it's the feeling you get when man and machine become one." data-de="Freude am Fahren ist nicht nur ein Slogan – es ist das Gefühl, wenn Mensch und Maschine eins werden." data-uz="Sof haydash zavqi shunchaki shior emas – bu inson va mashina bir bo'lgandagi tuyg'u.">
+                        "Sheer driving pleasure isn't just a slogan – it's the feeling you get when man and machine become one."
+                    </p>
+                </blockquote>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 md:gap-4 relative perspective-1000">
+                <div class="space-y-3 md:space-y-4">
+                    <div class="transform rotate-[-3deg] hover:rotate-0 transition-all duration-700 hover:scale-105 reveal">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Dixi_3-15_DA_%281929%29.jpg" 
+                        class="w-full h-48 md:h-64 object-cover rounded-xl md:rounded-2xl shadow-2xl">
+                    </div>
+                    <div class="transform rotate-[3deg] hover:rotate-0 transition-all duration-700 hover:scale-105 reveal delay-200">
+                        <img src="./assets/images/cars/image.1.png" 
+                        class="w-full h-32 md:h-48 object-cover rounded-xl md:rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+                <div class="space-y-3 md:space-y-4 mt-8 md:mt-12">
+                    <div class="transform rotate-[2deg] hover:rotate-0 transition-all duration-700 hover:scale-105 reveal delay-400">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Bizzarrini_Lamborghini_Dallara.jpg" 
+                        class="w-full h-32 md:h-48 object-cover rounded-xl md:rounded-2xl shadow-2xl">
+                    </div>
+                    <div class="transform rotate-[-2deg] hover:rotate-0 transition-all duration-700 hover:scale-105 reveal delay-600">
+                        <img src="https://a.storyblok.com/f/254844/4533x2550/0def1d81f4/desktop_about_hq_jq.jpg/m/2560x1440/smart" 
+                        class="w-full h-48 md:h-64 object-cover rounded-xl md:rounded-2xl shadow-2xl">
+                    </div>
+                </div>
+                
+                <div class="absolute -bottom-5 md:-bottom-10 -right-5 md:-right-10 w-48 md:w-64 h-48 md:h-64 border border-[#1c69d4]/20 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-12 md:py-20 border-y border-white/5">
+    <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+            <div class="stat-card group">
+                <div class="bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-8 text-center hover:bg-[#1c69d4]/10 hover:border-[#1c69d4]/30 transition-all duration-500">
+                    <div class="text-3xl md:text-5xl font-bold text-[#1c69d4] counter mb-2 md:mb-3" data-target="108">0</div>
+                    <div class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-zinc-500 stat-1" data-en="Years of Excellence" data-de="Jahre der Exzellenz" data-uz="Mukammallik Yillari">Years of Excellence</div>
+                </div>
+            </div>
+            <div class="stat-card group">
+                <div class="bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-8 text-center hover:bg-[#1c69d4]/10 hover:border-[#1c69d4]/30 transition-all duration-500">
+                    <div class="text-3xl md:text-5xl font-bold text-[#1c69d4] counter mb-2 md:mb-3" data-target="40">0+</div>
+                    <div class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-zinc-500 stat-2" data-en="Model Series" data-de="Modellreihen" data-uz="Model Seriyalari">Model Series</div>
+                </div>
+            </div>
+            <div class="stat-card group">
+                <div class="bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-8 text-center hover:bg-[#1c69d4]/10 hover:border-[#1c69d4]/30 transition-all duration-500">
+                    <div class="text-3xl md:text-5xl font-bold text-[#1c69d4] counter mb-2 md:mb-3" data-target="50">0+</div>
+                    <div class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-zinc-500 stat-3" data-en="M Performance" data-de="M Performance" data-uz="M Performance">M Performance</div>
+                </div>
+            </div>
+            <div class="stat-card group">
+                <div class="bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-2xl p-4 md:p-8 text-center hover:bg-[#1c69d4]/10 hover:border-[#1c69d4]/30 transition-all duration-500">
+                    <div class="text-3xl md:text-5xl font-bold text-[#1c69d4] counter mb-2 md:mb-3" data-target="12">0</div>
+                    <div class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-zinc-500 stat-4" data-en="Electric Models" data-de="Elektromodelle" data-uz="Elektr Modellar">Electric Models</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Section -->
+<section id="technology" class="py-16 md:py-32 relative overflow-hidden">
+    <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="text-center mb-12 md:mb-20">
+            <span class="text-[8px] uppercase tracking-[0.8em] text-[#1c69d4] font-bold mb-4 block innovation-text" data-en="Innovation" data-de="Innovation" data-uz="Innovatsiya">Innovation</span>
+            <h2 class="text-4xl md:text-7xl font-bold mb-6 tech-title" style="font-family: 'Playfair Display', serif;" data-en="Future of Driving" data-de="Zukunft des Fahrens" data-uz="Haydash Kelajagi">
+                Future of Driving
+            </h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+            <div class="tech-card group">
+                <div class="bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-2xl p-6 md:p-8 hover:bg-[#1c69d4]/10 hover:border-[#1c69d4]/30 transition-all duration-500">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-[#1c69d4]/20 rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt text-xl md:text-2xl text-[#1c69d4]"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3 tech-card-1-title" data-en="Electric Excellence" data-de="Elektrische Exzellenz" data-uz="Elektr Mukammalligi">Electric Excellence</h3>
+                    <p class="text-xs md:text-sm text-zinc-500 leading-relaxed tech-card-1-desc" data-en="BMW i Series combines zero emissions with ultimate driving dynamics." data-de="Die BMW i Serie verbindet Null Emissionen mit ultimativer Fahrdynamik." data-uz="BMW i seriyasi nol emissiyani eng zo'r haydash dinamikasi bilan birlashtiradi.">
+                        BMW i Series combines zero emissions with ultimate driving dynamics.
+                    </p>
+                </div>
+            </div>
+            <div class="tech-card group">
+                <div class="bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-2xl p-6 md:p-8 hover:bg-[#1c69d4]/10 hover:border-[#1c69d4]/30 transition-all duration-500">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-[#1c69d4]/20 rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                        
+                        <i class="fa-solid fa-gauge text-xl md:text-2xl text-[#1c69d4]"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3 tech-card-2-title" data-en="M Performance" data-de="M Performance" data-uz="M Performance">M Performance</h3>
+                    <p class="text-xs md:text-sm text-zinc-500 leading-relaxed tech-card-2-desc" data-en="Racing-bred technology for the ultimate driving experience." data-de="Rennsport-Technologie für das ultimative Fahrerlebnis." data-uz="Eng zo'r haydash tajribasi uchun poygada sinovdan o'tgan texnologiya.">
+                        Racing-bred technology for the ultimate driving experience.
+                    </p>
+                </div>
+            </div>
+            <div class="tech-card group">
+                <div class="bg-zinc-900/50 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-2xl p-6 md:p-8 hover:bg-[#1c69d4]/10 hover:border-[#1c69d4]/30 transition-all duration-500">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-[#1c69d4]/20 rounded-full flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-brain text-xl md:text-2xl text-[#1c69d4]"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 md:mb-3 tech-card-3-title" data-en="Intelligent Driving" data-de="Intelligentes Fahren" data-uz="Intellektual Haydash">Intelligent Driving</h3>
+                    <p class="text-xs md:text-sm text-zinc-500 leading-relaxed tech-card-3-desc" data-en="Cutting-edge assistance systems for safety and comfort." data-de="Modernste Assistenzsysteme für Sicherheit und Komfort." data-uz="Xavfsizlik va qulaylik uchun eng zamonaviy yordam tizimlari.">
+                        Cutting-edge assistance systems for safety and comfort.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filter Section -->
+<section id="collection" class="pt-12 md:pt-20">
+    <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="text-center mb-12 md:mb-16">
+            <span class="text-[8px] uppercase tracking-[0.8em] text-[#1c69d4] font-bold mb-4 block collection-text" data-en="The Collection" data-de="Die Kollektion" data-uz="Kolleksiya">The Collection</span>
+            <h2 class="text-4xl md:text-7xl font-bold mb-6 md:mb-8 collection-title" style="font-family: 'Playfair Display', serif;" data-en="Discover Your BMW" data-de="Entdecken Sie Ihren BMW" data-uz="BMW-ingizni Kashf eting">
+                Discover Your BMW
+            </h2>
+            
+            <div class="max-w-md mx-auto mb-8 md:mb-12">
+                <div class="relative group">
+                    <input type="text" id="searchInput" placeholder="Search by model, year, or engine..." 
+                    class="w-full bg-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-full p-4 md:p-5 pl-10 md:pl-14 outline-none focus:border-[#1c69d4] transition-all text-sm search-placeholder" data-en="Search by model, year, or engine..." data-de="Suche nach Modell, Jahr oder Motor..." data-uz="Model, yil yoki dvigatel bo'yicha qidiruv...">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 md:left-5 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-[#1c69d4] transition-colors"></i>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
+                <button class="filter-btn active" data-filter="all">
+                    <span class="relative z-10 filter-all" data-en="All Models (40)" data-de="Alle Modelle (40)" data-uz="Barcha Modellar (40)">All Models (40)</span>
+                </button>
+                <button class="filter-btn" data-filter="sedan">
+                    <span class="relative z-10 filter-sedan" data-en="Sedan (10)" data-de="Limousine (10)" data-uz="Sedan (10)">Sedan (10)</span>
+                </button>
+                <button class="filter-btn" data-filter="coupe">
+                    <span class="relative z-10 filter-coupe" data-en="Coupe (8)" data-de="Coupé (8)" data-uz="Kupe (8)">Coupe (8)</span>
+                </button>
+                <button class="filter-btn" data-filter="suv">
+                    <span class="relative z-10 filter-suv" data-en="SUV (8)" data-de="SUV (8)" data-uz="SUV (8)">SUV (8)</span>
+                </button>
+                <button class="filter-btn" data-filter="m">
+                    <span class="relative z-10 filter-m" data-en="M Performance (8)" data-de="M Performance (8)" data-uz="M Performance (8)">M Performance (8)</span>
+                </button>
+                <button class="filter-btn" data-filter="electric">
+                    <span class="relative z-10 filter-electric" data-en="Electric (6)" data-de="Elektro (6)" data-uz="Elektr (6)">Electric (6)</span>
+                </button>
+            </div>
+            
+            <div class="flex justify-end">
+                <div class="relative group">
+                    <select id="sortSelect" class="appearance-none bg-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-full px-4 md:px-6 py-3 md:py-4 pr-8 md:pr-12 text-[8px] md:text-[10px] uppercase tracking-widest outline-none focus:border-[#1c69d4] transition cursor-pointer">
+                        <option value="default" class="sort-default" data-en="Sort by: Default" data-de="Sortieren: Standard" data-uz="Saralash: Standart">Sort by: Default</option>
+                        <option value="year-desc" class="sort-year-desc" data-en="Year: Newest First" data-de="Jahr: Neueste zuerst" data-uz="Yil: Eng Yangi">Year: Newest First</option>
+                        <option value="year-asc" class="sort-year-asc" data-en="Year: Oldest First" data-de="Jahr: Älteste zuerst" data-uz="Yil: Eng Eski">Year: Oldest First</option>
+                        <option value="price-desc" class="sort-price-desc" data-en="Price: High to Low" data-de="Preis: Hoch zu Niedrig" data-uz="Narx: Yuqori->Past">Price: High to Low</option>
+                        <option value="price-asc" class="sort-price-asc" data-en="Price: Low to High" data-de="Preis: Niedrig zu Hoch" data-uz="Narx: Past->Yuqori">Price: Low to High</option>
+                        <option value="hp-desc" class="sort-hp-desc" data-en="Horsepower: High to Low" data-de="Leistung: Hoch zu Niedrig" data-uz="Ot Kuchi: Yuqori->Past">Horsepower: High to Low</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down absolute right-4 md:right-6 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none group-hover:text-[#1c69d4] transition-colors text-xs"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Car Grid -->
+<main class="max-w-screen-2xl mx-auto px-6 pb-16 md:pb-20">
+    <div id="carGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"></div>
+    
+    <div class="text-center mt-12 md:mt-20" id="loadMoreContainer">
+        <button id="loadMoreBtn" 
+        class="relative overflow-hidden group px-12 md:px-16 py-4 md:py-5 rounded-full border border-white/10 hover:border-[#1c69d4] transition-all">
+        <span class="relative z-10 text-[8px] md:text-[9px] uppercase tracking-[0.3em] font-semibold group-hover:text-white transition-colors load-more-text" data-en="Load More Models" data-de="Mehr Modelle Laden" data-uz="Ko'proq Modellar">
+            Load More Models
+        </span>
+        <span class="absolute inset-0 bg-[#1c69d4] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+    </button>
+</div>
+
+<div id="noResults" class="hidden text-center py-16 md:py-20">
+    <i class="fa-solid fa-car text-4xl md:text-6xl text-zinc-700 mb-4"></i>
+    <p class="text-zinc-500 text-base md:text-lg no-results-text" data-en="No models found matching your criteria" data-de="Keine Modelle gefunden" data-uz="Hech qanday model topilmadi">No models found matching your criteria</p>
+    <button onclick="resetFilters()" class="mt-4 md:mt-6 text-[#1c69d4] underline text-sm reset-filters" data-en="Reset Filters" data-de="Filter Zurücksetzen" data-uz="Filtrlarni Tozalash">Reset Filters</button>
+</div>
+</main>
+
+<!-- Gallery Section -->
+<section id="gallery" class="py-16 md:py-32 bg-black relative overflow-hidden">
+    <div class="max-w-screen-2xl mx-auto px-6">
+        <div class="text-center mb-12 md:mb-20">
+            <span class="text-[8px] uppercase tracking-[0.8em] text-[#1c69d4] font-bold mb-4 block gallery-text" data-en="Gallery" data-de="Galerie" data-uz="Galereya">Gallery</span>
+            <h2 class="text-4xl md:text-7xl font-bold mb-6 gallery-title" style="font-family: 'Playfair Display', serif;" data-en="The Art of Design" data-de="Die Kunst der Gestaltung" data-uz="Dizayn San'ati">The Art of Design</h2>
+            <p class="text-zinc-400 max-w-md mx-auto" data-en="Rare. Exclusive. Timeless. Only a few of these masterpieces exist in the world." data-de="Selten. Exklusiv. Zeitlos. Nur wenige dieser Meisterwerke existieren in der Welt." data-uz="G'arajli. Eksklyuziv. Vaqtli. Dunyoda faqat bir nechta bu asarlarning yaratilishi mumkin.">Rare. Exclusive. Timeless. Only a few of these masterpieces exist in the world.</p>
+        </div>
+        
+        <!-- Exclusive 7 ta mashina grid (masonry uslubida) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[280px]" id="galleryGrid"></div>
+    </div>
+</section>
+
+<!-- Search Modal -->
+<div id="searchModal" class="fixed inset-0 z-[700] hidden items-start justify-center pt-20 md:pt-32">
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-xl" onclick="closeSearch()"></div>
+    <div class="relative w-full max-w-2xl mx-4">
+        <div class="bg-zinc-950 border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6">
+            <input type="text" id="searchModalInput" placeholder="Search by model name, year, or specs..." 
+            class="w-full bg-white/5 border border-white/10 rounded-lg md:rounded-xl p-4 md:p-5 pl-10 md:pl-14 outline-none focus:border-[#1c69d4] transition text-base md:text-lg search-modal-placeholder" data-en="Search by model name, year, or specs..." data-de="Suche nach Modellname, Jahr oder Ausstattung..." data-uz="Model nomi, yil yoki xususiyatlar bo'yicha qidiruv...">
+            <i class="fa-regular fa-magnifying-glass absolute left-8 md:left-10 top-1/2 -translate-y-1/2 text-zinc-500"></i>
+            <div id="searchResults" class="mt-4 max-h-80 md:max-h-96 overflow-y-auto"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Car Modal -->
+<div id="carModal" class="fixed inset-0 z-[500] hidden items-center justify-center p-3 md:p-12">
+    <div id="modalBlurBg" class="absolute inset-0 bg-black/95 backdrop-blur-2xl transition-all duration-700"></div>
+    <div class="relative bg-gradient-to-br from-zinc-950 to-black border border-white/10 w-full max-w-5xl 
+    flex flex-col lg:flex-row overflow-hidden rounded-2xl md:rounded-3xl shadow-2xl reveal-modal">
+    <button onclick="closeCarModal()" 
+    class="absolute top-3 right-3 md:top-6 md:right-6 text-2xl md:text-3xl text-white/50 hover:text-[#1c69d4] z-[60] 
+    hover:rotate-90 transition-all duration-500">
+    <i class="fa-solid fa-xmark"></i>
+</button>
+
+<div class="w-full lg:w-3/5 h-[250px] md:h-[400px] lg:h-[600px] overflow-hidden group relative">
+    <img id="modalImg" src="" class="w-full h-full object-cover transition-transform duration-7000 group-hover:scale-110">
+    
+    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+    
+    <div class="absolute bottom-3 left-3 md:bottom-6 md:left-6 flex gap-2 md:gap-3">
+        <span class="px-2 md:px-4 py-1 md:py-2 bg-black/50 backdrop-blur-sm border border-white/10 rounded-full text-[6px] md:text-[8px] uppercase tracking-widest">
+            <i class="fa-solid fa-calendar mr-1 md:mr-2 "></i> <span id="modalYear"></span>
+        </span>
+        <span class="px-2 md:px-4 py-1 md:py-2 bg-black/50 backdrop-blur-sm border border-white/10 rounded-full text-[6px] md:text-[8px] uppercase tracking-widest">
+            <i class="fa-solid fa-gauge mr-1 md:mr-2"></i> <span id="modalHp"></span> HP
+        </span>
+    </div>
+</div>
+
+
+<div class="w-full lg:w-2/5 p-6 md:p-10 flex flex-col justify-center bg-gradient-to-br from-zinc-950 to-black">
+    <h3 id="modalTitle" class="text-2xl md:text-4xl lg:text-5xl font-bold mb-1 md:mb-2" style="font-family: 'Playfair Display', serif;"></h3>
+    <p id="modalSeries" class="text-[6px] md:text-[8px] uppercase tracking-widest text-[#1c69d4] mb-4 md:mb-6"></p>
+    
+    <div id="modalSpecs" class="space-y-2 md:space-y-4 text-xs md:text-sm mb-4 md:mb-8"></div>
+    
+    <div class="pt-4 md:pt-6 border-t border-white/5">
+        <p class="text-[6px] md:text-[8px] uppercase tracking-widest text-zinc-500 mb-1 starting-price" data-en="Starting from" data-de="Preis ab" data-uz="Narxi dan">Starting from</p>
+        <p id="modalPrice" class="text-2xl md:text-4xl font-bold text-[#1c69d4]" style="font-family: 'Playfair Display', serif;"></p>
+    </div>
+    
+    <div class="mt-4 md:mt-6 flex gap-3 md:gap-4">
+        <button onclick="addToWishlist(currentCar)" 
+        class="flex-1 border-2 border-[#1c69d4] rounded-full py-2 md:py-4 text-[7px] md:text-[9px] uppercase tracking-[0.2em] font-semibold
+        hover:bg-[#1c69d4] hover:text-black transition-all group wishlist-modal-btn">
+        <span class="flex items-center justify-center gap-1 md:gap-2">
+            <i class="fa-regular fa-heart group-hover:text-black text-xs"></i>
+            <span class="add-to-wishlist-text" data-en="Add to Wishlist" data-de="Zur Wunschliste" data-uz="Sevimlilarga Qo'shish">Add to Wishlist</span>
+        </span>
+    </button>
+    
+    <button onclick="shareCar()" 
+    class="w-10 h-10 md:w-14 md:h-14 border-2 border-white/10 rounded-full flex items-center justify-center
+    hover:border-[#1c69d4] hover:text-[#1c69d4] transition-all">
+    <i class="fa-solid fa-share-nodes text-sm md:text-base"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Wishlist Modal -->
+<div id="wishlistModal" class="fixed inset-0 z-[400] hidden items-center justify-center p-3 md:p-4">
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-xl" onclick="closeWishlist()"></div>
+    <div class="relative bg-zinc-950 border border-white/10 w-full max-w-2xl p-4 md:p-8 rounded-2xl md:rounded-3xl max-h-[80vh] overflow-y-auto">
+        <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-8 wishlist-title" style="font-family: 'Playfair Display', serif;" data-en="Your Wishlist" data-de="Ihre Wunschliste" data-uz="Sevimlilar">Your Wishlist</h3>
+        <div id="wishlistItems" class="space-y-3 md:space-y-4"></div>
+        <button onclick="closeWishlist()" class="absolute top-4 right-4 md:top-8 md:right-8 text-2xl md:text-3xl text-white/50 hover:text-[#1c69d4] transition-colors">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Auth Modal -->
+<div id="authModal" class="fixed inset-0 z-[300] hidden items-center justify-center p-4 md:p-6">
+    <div class="absolute inset-0 bg-black/95 backdrop-blur-xl" onclick="closeAuth()"></div>
+    <div class="relative bg-gradient-to-br from-zinc-950 to-black border border-white/10 w-full max-w-md p-6 md:p-10 rounded-2xl md:rounded-3xl shadow-2xl reveal-modal">
+        <div class="text-center mb-6 md:mb-8">
+            <img src="https://www.carlogos.org/car-logos/bmw-logo.png" class="h-10 md:h-12 mx-auto mb-4 md:mb-6">
+            <h3 class="text-2xl md:text-3xl font-bold mb-1 md:mb-2 auth-title" style="font-family: 'Playfair Display', serif;" id="authTitle" data-en="Welcome Back" data-de="Willkommen Zurück" data-uz="Xush Kelibsiz">Welcome Back</h3>
+            <p class="text-[7px] md:text-[8px] uppercase tracking-widest text-zinc-500 auth-subtitle" id="authSubtitle" data-en="Sign in to your BMW account" data-de="Melden Sie sich bei Ihrem BMW-Konto an" data-uz="BMW hisobingizga kiring">Sign in to your BMW account</p>
+        </div>
+        
+        <form id="authForm" class="space-y-4 md:space-y-6">
+            <div id="nameGroup" class="space-y-2 hidden">
+                <label class="text-[7px] md:text-[8px] uppercase tracking-widest text-zinc-500 font-bold fullname-label" data-en="Full Name" data-de="Vollständiger Name" data-uz="To'liq Ism">Full Name</label>
+                <input type="text" id="authName" 
+                class="w-full bg-white/5 border border-white/10 rounded-lg md:rounded-xl p-3 md:p-4 outline-none focus:border-[#1c69d4] transition text-sm"
+                placeholder="Your Name">
+            </div>
+            
+            <div class="space-y-2">
+                <label class="text-[7px] md:text-[8px] uppercase tracking-widest text-zinc-500 font-bold email-label" data-en="Email" data-de="E-Mail" data-uz="Email">Email</label>
+                <input type="email" id="authEmail" required 
+                class="w-full bg-white/5 border border-white/10 rounded-lg md:rounded-xl p-3 md:p-4 outline-none focus:border-[#1c69d4] transition text-sm"
+                placeholder="name@example.com">
+            </div>
+            
+            <div class="space-y-2">
+                <label class="text-[7px] md:text-[8px] uppercase tracking-widest text-zinc-500 font-bold password-label" data-en="Password" data-de="Passwort" data-uz="Parol">Password</label>
+                <input type="password" id="authPass" required 
+                class="w-full bg-white/5 border border-white/10 rounded-lg md:rounded-xl p-3 md:p-4 outline-none focus:border-[#1c69d4] transition text-sm"
+                placeholder="••••••••">
+            </div>
+            
+            <button type="submit" 
+            class="w-full bg-[#1c69d4] text-white rounded-full py-3 md:py-4 uppercase text-[8px] md:text-[9px] font-bold tracking-[0.2em] 
+            hover:bg-white hover:text-black transition-all relative overflow-hidden group">
+            <span class="relative z-10 submit-btn" data-en="Submit" data-de="Absenden" data-uz="Yuborish">Submit</span>
+            <span class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+        </button>
+    </form>
+    
+    <button onclick="toggleAuth()" class="mt-4 md:mt-6 text-xs text-zinc-500 underline hover:text-white w-full text-center" id="authBtn" data-en="Create new account" data-de="Neues Konto erstellen" data-uz="Yangi hisob yaratish">
+        Create new account
+    </button>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-b from-black to-zinc-950 border-t border-white/5 py-12 md:py-20 px-4 md:px-6 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #1c69d4 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    
+    <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 relative z-10">
+        <div class="space-y-4 md:space-y-6 text-center md:text-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/BMW.svg/3840px-BMW.svg.png" class="h-8 md:h-10 mx-auto md:mx-0 opacity-50 grayscale hover:grayscale-0 transition-all duration-700 hover:opacity-100">
+            <p class="text-[8px] md:text-[9px] text-zinc-600 leading-relaxed footer-description" data-en="The Ultimate Driving Machine. Creating automotive excellence since 1916 in Munich, Germany." data-de="Freude am Fahren. Seit 1916 in München, Deutschland, schaffen wir automobile Exzellenz." data-uz="Eng zo'r haydash mashinasi. 1916 yildan beri Germaniyaning Myunxen shahrida avtomobil mukammalligini yaratamiz.">
+                The Ultimate Driving Machine. Creating automotive excellence since 1916 in Munich, Germany.
+            </p>
+            <div class="flex gap-3 md:gap-4 text-base md:text-lg text-zinc-600 justify-center md:justify-start">
+                <a href="https://www.instagram.com/bmw" target="_blank" rel="noopener noreferrer" class="hover:text-[#1c69d4] transition transform hover:scale-125"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/BMW" target="_blank" rel="noopener noreferrer" class="hover:text-[#1c69d4] transition transform hover:scale-125"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://t.me/s/BMW" target="_blank" rel="noopener noreferrer" class="hover:text-[#1c69d4] transition transform hover:scale-125"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.youtube.com/bmw" target="_blank" rel="noopener noreferrer" class="hover:text-[#1c69d4] transition transform hover:scale-125"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+        
+        <div class="text-center md:text-left">
+            <h4 class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-[#1c69d4] font-bold mb-4 md:mb-6 models-footer" data-en="Models" data-de="Modelle" data-uz="Modellar">Models</h4>
+            <ul class="space-y-2 md:space-y-3 text-[8px] md:text-[9px] text-zinc-500">
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> 3 Series</a></li>
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> 5 Series</a></li>
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> 7 Series</a></li>
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> X Series</a></li>
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> M Series</a></li>
+            </ul>
+        </div>
+        
+        <div class="text-center md:text-left">
+            <h4 class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-[#1c69d4] font-bold mb-4 md:mb-6 company-footer" data-en="Company" data-de="Unternehmen" data-uz="Kompaniya">Company</h4>
+            <ul class="space-y-2 md:space-y-3 text-[8px] md:text-[9px] text-zinc-500">
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> <span class="footer-heritage" data-en="Heritage" data-de="Geschichte" data-uz="Tarix">Heritage</span></a></li>
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> <span class="footer-innovation" data-en="Innovation" data-de="Innovation" data-uz="Innovatsiya">Innovation</span></a></li>
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> <span class="footer-motorsport" data-en="Motorsport" data-de="Motorsport" data-uz="Motorsport">Motorsport</span></a></li>
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> <span class="footer-careers" data-en="Careers" data-de="Karriere" data-uz="Ish O'rinlari">Careers</span></a></li>
+                <li><a href="#" class="hover:text-[#1c69d4] transition flex items-center gap-2 justify-center md:justify-start"><i class="fa-regular fa-arrow-right text-[6px]"></i> <span class="footer-contact" data-en="Contact" data-de="Kontakt" data-uz="Bog'lanish">Contact</span></a></li>
+            </ul>
+        </div>
+        
+        <div class="text-center md:text-left">
+            <h4 class="text-[8px] md:text-[9px] uppercase tracking-[0.2em] text-[#1c69d4] font-bold mb-4 md:mb-6 newsletter-footer" data-en="Newsletter" data-de="Newsletter" data-uz="Yangiliklar">Newsletter</h4>
+            <p class="text-[7px] md:text-[8px] text-zinc-500 mb-3 md:mb-4 newsletter-desc" data-en="Subscribe to receive exclusive updates" data-de="Abonnieren Sie exklusive Updates" data-uz="Eksklyuziv yangiliklarni olish uchun obuna bo'ling">Subscribe to receive exclusive updates</p>
+            <form id="newsletterForm" class="flex gap-2">
+                <input type="email" placeholder="Your email" 
+                class="flex-1 bg-white/5 border border-white/10 rounded-full px-3 md:px-4 py-2 md:py-3 text-[8px] md:text-[9px] outline-none focus:border-[#1c69d4] transition newsletter-placeholder" data-en="Your email" data-de="Ihre E-Mail" data-uz="Emailingiz">
+                <button type="submit" class="bg-[#1c69d4] text-black px-3 md:px-4 rounded-full hover:bg-white transition">
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
+            </form>
+            <p class="text-[7px] md:text-[8px] text-zinc-600 mt-4 md:mt-6 footer-location" data-en="Munich, Bavaria, Germany" data-de="München, Bayern, Deutschland" data-uz="Myunxen, Bavariya, Germaniya">Munich, Bavaria, Germany</p>
+            <p class="text-[7px] md:text-[8px] text-zinc-600 footer-copyright" data-en="© 2026 Bayerische Motoren Werke AG" data-de="© 2026 Bayerische Motoren Werke AG" data-uz="© 2026 Bayerische Motoren Werke AG">© 2026 Bayerische Motoren Werke AG</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" 
+class="fixed bottom-4 right-4 md:bottom-8 md:right-8 w-10 h-10 md:w-12 md:h-12 bg-[#1c69d4]/10 border border-[#1c69d4]/30 rounded-full flex items-center justify-center
+hover:bg-[#1c69d4] hover:scale-110 transition-all z-50 opacity-0 invisible" id="backToTop">
+<i class="fa-solid fa-arrow-up text-[#1c69d4] hover:text-white"></i>
+
+</button>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Scripts - To'g'ri tartibda yuklanishi kerak -->
+<script src="js/constants.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/cars-data.js"></script>
+<script src="js/gallery-data.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/language.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/search.js"></script>
+<script src="js/car-modal.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>          <!-- main.js eng oxirida -->
+</body>
+</html>
