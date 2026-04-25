@@ -134,10 +134,10 @@ function showToast(message, type = "info") {
 
   toast.className = `toast flex items-center gap-3 min-w-[300px]`;
   toast.innerHTML = `
-        <i class="fa-regular ${type === "success" ? "fa-circle-check" : "fa-circle-info"} text-[#1c69d4] text-xl"></i>
+        <i class="fa-solid ${type === "success" ? "fa-circle-check" : "fa-circle-info"} text-[#1c69d4] text-xl"></i>
         <span class="flex-1 text-sm">${message}</span>
         <button onclick="this.parentElement.remove()" class="text-white/50 hover:text-white">
-            <i class="fa-regular fa-xmark"></i>
+            <i class="fa-solid fa-xmark"></i>
         </button>
     `;
 
